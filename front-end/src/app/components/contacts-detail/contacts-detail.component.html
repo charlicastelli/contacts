@@ -1,0 +1,23 @@
+<div class="contents">
+  <h1>Member Detail component!</h1>
+  <p>Membro carregado: {{ selectedContact.name }} - {{ selectedContact.surname }}</p>
+
+  <img src="{{ selectedContact.photo }}" />
+  <br />
+  <div class="text">
+
+    <input type="text" [ngModel]="selectedContact.id" readonly /> <br />
+    <input type="text" [(ngModel)]="selectedContact.name"/> <br />
+    <input type="text" [(ngModel)]="selectedContact.surname" /> <br />
+    <input type="text" [(ngModel)]="selectedContact.phone" /> <br />
+    <input type="text" [(ngModel)]="selectedContact.email" /> <br />
+    <input type="text" [(ngModel)]="selectedContact.company" /> <br />
+    <input type="file" (change)="onFileSelected($event)" /> <br /><br />
+
+    <div class="btn">
+      <button (click)="update()">Update Member</button>
+      <button >Novo</button>
+      <button >Apagar</button>
+    </div>
+  </div>
+</div>

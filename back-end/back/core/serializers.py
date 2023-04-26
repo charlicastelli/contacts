@@ -9,4 +9,4 @@ class ContactSerializers(serializers.ModelSerializer):
 class ContactSimpleSerializers(serializers.ModelSerializer):
     class Meta:
         model = Contact
-        fields = ['name', 'surname']
+        fields = ['id', 'name', 'phone', 'email']
