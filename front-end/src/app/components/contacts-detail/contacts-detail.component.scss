@@ -1,0 +1,49 @@
+//MAT-CARD
+mat-card {
+  border-radius: 10px;
+  background-color: var(--surface);
+  max-width: 600px;
+}
+
+mat-card-content {
+  padding-top: 10px;
+  background-color: var(--surface);
+}
+
+mat-card-subtitle {
+  text-align: left;
+  color: var(--color-text-gray);
+}
+
+mat-card-title {
+  text-align: left;
+  color: var(--color-text-black);
+  margin-top: 15px;
+}
+
+
+
+// MAT-LIST
+mat-list {
+  text-align: left;
+}
+
+//texto da lista
+:host ::ng-deep .mdc-list-item__primary-text {
+    color: var(--color-text-black);
+}
+
+//Icones da lista
+.mdc-list-item--with-leading-icon .mdc-list-item__start {
+  color: var(--color-text-black);
+}
+
+// Hover ao passar o mouse sobre os itens da lista
+:host ::ng-deep .mdc-list-item:hover .mdc-list-item__primary-text {
+  color: var(--color-text-black);
+}
+
+img {
+  width: 80px;
+  height: 80px;
+}

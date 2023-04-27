@@ -1,23 +1,41 @@
-<div class="contents">
-  <h1>Member Detail component!</h1>
-  <p>Membro carregado: {{ selectedContact.name }} - {{ selectedContact.surname }}</p>
+<mat-card>
+  <mat-card-header>
+    <img mat-card-avatar src="{{ selectedContact.photo }}" />
+    <mat-card-title
+      >{{ selectedContact.name }} {{ selectedContact.surname }}</mat-card-title
+    >
+    <mat-card-subtitle>{{ selectedContact.company }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-list role="list">
+      <mat-list-item role="listitem">
+        <mat-icon matListItemIcon>person</mat-icon>
+        {{ selectedContact.name }} {{ selectedContact.surname }}
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        <mat-icon matListItemIcon>phone</mat-icon>
+        {{ selectedContact.phone }}
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        <mat-icon matListItemIcon>email</mat-icon>
+        {{ selectedContact.email }}
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        <mat-icon matListItemIcon>business</mat-icon>
+        {{ selectedContact.company }}
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button (click)="deleteContact()">
+      <mat-icon>delete</mat-icon>
+      Remover
+    </button>
+    
+    <button mat-raised-button (click)="editContact()">
+      <mat-icon>edit</mat-icon>
+      Editar
+    </button>
+  </mat-card-actions>
+</mat-card>
 
-  <img src="{{ selectedContact.photo }}" />
-  <br />
-  <div class="text">
-
-    <input type="text" [ngModel]="selectedContact.id" readonly /> <br />
-    <input type="text" [(ngModel)]="selectedContact.name"/> <br />
-    <input type="text" [(ngModel)]="selectedContact.surname" /> <br />
-    <input type="text" [(ngModel)]="selectedContact.phone" /> <br />
-    <input type="text" [(ngModel)]="selectedContact.email" /> <br />
-    <input type="text" [(ngModel)]="selectedContact.company" /> <br />
-    <input type="file" (change)="onFileSelected($event)" /> <br /><br />
-
-    <div class="btn">
-      <button (click)="update()">Update Member</button>
-      <button >Novo</button>
-      <button >Apagar</button>
-    </div>
-  </div>
-</div>

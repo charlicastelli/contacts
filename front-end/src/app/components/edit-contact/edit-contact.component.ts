@@ -1,23 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
-import { Model } from 'src/app/shared/model/model';
-
 import { ContactsService } from '../service/contacts/contacts.service';
+import { Model } from 'src/app/shared/model/model';
+import { Location } from '@angular/common';
 
 @Component({
-  selector: 'app-contacts-detail',
-  templateUrl: './contacts-detail.component.html',
-  styleUrls: ['./contacts-detail.component.scss'],
+  selector: 'app-edit-contact',
+  templateUrl: './edit-contact.component.html',
+  styleUrls: ['./edit-contact.component.scss']
 })
-export class ContactsDetailComponent implements OnInit {
+export class EditContactComponent implements OnInit {
   selectedContact: any = Model;
-  selectedId!: number;
+  fileToUpload!: File;
+
+  imageURL!: string;
+
 
   constructor(
     private route: ActivatedRoute,
     private contactsService: ContactsService,
-    private router: Router
-  ) {}
+    private router: Router,
+    private location: Location,
+  ) { }
 
   ngOnInit(): void {
     /*
@@ -27,11 +31,11 @@ export class ContactsDetailComponent implements OnInit {
     */
     this.route.paramMap.subscribe((param: ParamMap) => {
       let id: number = Number(param.get('id'));
-      this.selectedId = id;
       this.loadContact(id!);
     });
   }
 
+  //Carregar na tela o contato 
   loadContact(id: number) {
     //capturar o id enviado na rota 'member-detail/:id'
     this.contactsService.getContact(id).subscribe(
@@ -44,21 +48,37 @@ export class ContactsDetailComponent implements OnInit {
     );
   }
 
-  editContact() {
-    this.route.paramMap.subscribe((param: ParamMap) => {
-      let id: number = Number(param.get('id'));
-      this.router.navigate(['edit-contact', id]);
-    });
+  //Carrega quando uma imagem for selecionada
+  onFileSelected(event: any) {
+    this.fileToUpload = event.target.files.item(0);
+
+    //Carrega preview da imagem antes de salvar
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.imageURL = reader.result as string;
+    }
+    reader.readAsDataURL(this.fileToUpload);
   }
 
-  deleteContact() {
-    this.contactsService.removeContact(this.selectedId).subscribe(
+  update() {
+    this.contactsService.updateContact(this.selectedContact, this.fileToUpload).subscribe(
       (data) => {
         this.router.navigate(['/']);
       },
       (error) => {
-        console.log('Aconteceu um erro no updateMember');
+        console.log('Ocorreu um erro na atualização.');
       }
     );
   }
+
+  onCancel() {
+    this.location.back();
+  }
+
+  // newMember() {
+  //  // this.router.navigate(['new-member']);
+  // }
+
+  
+
 }

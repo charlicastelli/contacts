@@ -13,4 +13,5 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 - `ng g module shared/angular-material` (Criar modulo onde vou colocar todos os componente Angular Material)
 - `ng g service components/service/contacts/contacts `
 - `ng g component components/contacts-detail`
+- `ng g component components/edit-contact`
 - `ng g interface shared/model/model `

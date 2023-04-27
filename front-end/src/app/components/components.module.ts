@@ -8,12 +8,14 @@ import { AngularMaterialModule } from '../shared/angular-material/angular-materi
 import { ContactsDetailComponent } from './contacts-detail/contacts-detail.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { EditContactComponent } from './edit-contact/edit-contact.component';
 
 
 @NgModule({
   declarations: [
     HomeComponent,
-    ContactsDetailComponent
+    ContactsDetailComponent,
+    EditContactComponent
   ],
   imports: [
     CommonModule,

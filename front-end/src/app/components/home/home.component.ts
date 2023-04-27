@@ -32,9 +32,5 @@ export class HomeComponent {
 
   clickedRows(row: any) {
     this.router.navigate(['contact-detail', row.id]);
-    console.log(row.id);
-    console.log(row.name);
-    console.log(row.email);
-    console.log(row.phone);
   }
 }
