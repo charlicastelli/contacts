@@ -7,16 +7,23 @@
       (change)="onFileSelected($event)"
       #fileUpload
     />
-    <img
-      mat-card-avatar
-      src="{{ selectedContact.photo }}"
-      [src]="imageURL"
-      (click)="fileUpload.click()"
-    />
-    <mat-card-title
+
+    <div class="icon_edit_hover">
+      <img
+        mat-card-avatar
+        src="{{ selectedContact.photo }}"
+        [src]="imageURL"
+        (click)="fileUpload.click()"
+      />
+      <mat-icon class="icon-edit" (click)="fileUpload.click()">edit</mat-icon>
+    </div>
+
+    <div class="title-subtitle">
+      <mat-card-title
       >{{ selectedContact.name }} {{ selectedContact.surname }}</mat-card-title
     >
     <mat-card-subtitle>{{ selectedContact.company }}</mat-card-subtitle>
+    </div>
   </mat-card-header>
   <mat-card-content>
     <mat-form-field appearance="outline" class="full-width">

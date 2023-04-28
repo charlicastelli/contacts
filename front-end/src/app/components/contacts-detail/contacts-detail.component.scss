@@ -21,6 +21,12 @@ mat-card-title {
   margin-top: 15px;
 }
 
+mat-card-header {
+  padding-left: 60px;
+  padding-right: 60px;
+  justify-content: space-between;
+}
+
 
 
 // MAT-LIST
@@ -43,7 +49,31 @@ mat-list {
   color: var(--color-text-black);
 }
 
+//TAMANHO DA IMAGEM
 img {
   width: 80px;
   height: 80px;
 }
+
+//ZOOM NA IMAGEM AO PASSAR O MOUSE SOBRE ELA
+img {
+	max-width: 100%;
+	-moz-transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	transition: all 0.5s;
+}
+
+img:hover {
+	-moz-transform: scale(2);
+	-webkit-transform: scale(2);
+	transform: scale(2);
+}
+
+
+//BOTÃO MENU NO CARD-HEADER
+.button-more-vert {
+  color: var(--color-text-black);
+  cursor: pointer;
+}
+
+

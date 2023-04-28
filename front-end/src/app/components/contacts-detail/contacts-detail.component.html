@@ -5,6 +5,29 @@
       >{{ selectedContact.name }} {{ selectedContact.surname }}</mat-card-title
     >
     <mat-card-subtitle>{{ selectedContact.company }}</mat-card-subtitle>
+
+
+
+
+    <button class="button-more-vert" mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+
+
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="editContact()">
+        <mat-icon>edit</mat-icon>
+        <span>Editar</span>
+      </button>
+
+      <button mat-menu-item (click)="deleteContact()">
+        <mat-icon>delete</mat-icon>
+        <span>Excluir</span>
+      </button>
+      
+    </mat-menu>
+
+
   </mat-card-header>
   <mat-card-content>
     <mat-list role="list">
@@ -27,9 +50,9 @@
     </mat-list>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-raised-button (click)="deleteContact()">
-      <mat-icon>delete</mat-icon>
-      Remover
+    <button mat-raised-button (click)="onCancel()">
+      <mat-icon>navigate_before</mat-icon>
+      Voltar
     </button>
     
     <button mat-raised-button (click)="editContact()">

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { ThemeService } from './components/core/service/theme.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,10 @@ export class AppComponent implements OnInit {
   isDarkTheme!: Observable<boolean>;
   check!: boolean;
 
-  constructor(private themeService: ThemeService) {}
+  constructor(
+    private themeService: ThemeService,
+    private router: Router,
+    ) { }
 
   ngOnInit(): void {
     this.loadTheme();
@@ -38,5 +42,9 @@ export class AppComponent implements OnInit {
       this.buttonDarkTheme(data);
       this.check = data;
     }
+  }
+
+  clickHome() {
+    this.router.navigate(['/']);
   }
 }

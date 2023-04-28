@@ -1,5 +1,8 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import { ConfirmDialogComponent } from 'src/app/shared/confirm-dialog/confirm-dialog.component';
 import { Model } from 'src/app/shared/model/model';
 
 import { ContactsService } from '../service/contacts/contacts.service';
@@ -16,7 +19,9 @@ export class ContactsDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private contactsService: ContactsService,
-    private router: Router
+    private router: Router,
+    public dialog: MatDialog,
+    private location: Location,
   ) {}
 
   ngOnInit(): void {
@@ -52,13 +57,26 @@ export class ContactsDetailComponent implements OnInit {
   }
 
   deleteContact() {
-    this.contactsService.removeContact(this.selectedId).subscribe(
-      (data) => {
-        this.router.navigate(['/']);
-      },
-      (error) => {
-        console.log('Aconteceu um erro no updateMember');
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      data: 'Tem certeza que deseja remover este item?',
+    });
+
+    dialogRef.afterClosed().subscribe((result: boolean) => {
+      if (result) {
+        this.contactsService.removeContact(this.selectedId).subscribe(
+          (data) => {
+            this.router.navigate(['/']);
+          },
+          (error) => {
+            console.log('Aconteceu um erro no updateMember');
+          }
+        );
       }
-    );
+    });
+  }
+
+
+  onCancel() {
+    this.location.back();
   }
 }

@@ -10,6 +10,7 @@
   --warn: #b00020;
   --color-text-black: #000000;
   --color-text-gray: #a7a7a7;
+  --color-menu-gray: #ffffff;
 }
 
 :root .dark-theme {
@@ -22,6 +23,7 @@
   --warn: #cf6679;
   --color-text-black: #ffffff;
   --color-text-gray: #a7a7a7;
+  --color-menu-gray: #505050;
 }
 
 html,
@@ -80,4 +82,16 @@ mat-card {
 mat-card-actions {
   justify-content: center;
 }
+
+
+//BOTÃO MENU NO CARD-HEADER
+.mat-mdc-menu-content { 
+  color: var(--color-text-black);
+  background-color: var(--color-menu-gray);
+}
+.mat-mdc-menu-item .mat-icon-no-color, .mat-mdc-menu-submenu-icon {
+  color: var(--color-text-black);
+}
+
+
 

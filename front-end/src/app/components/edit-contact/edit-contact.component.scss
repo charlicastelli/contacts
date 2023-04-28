@@ -6,6 +6,10 @@ mat-card {
   text-align: center;
 }
 
+.title-subtitle {
+  padding-left: 10px;
+}
+
 mat-card-content {
   padding-top: 10px;
   background-color: var(--surface);
@@ -33,11 +37,59 @@ mat-card-title {
   display: none;
 }
 
+
+//IMAGEM PERFIL
+//TAMANHO DA IMAGEM
 img {
   width: 80px;
   height: 80px;
   cursor: pointer;
 }
+
+
+//ALTERAR COR DA IMAGEM AO PASSAR O MOUSE SOBRE ELA
+img {
+  opacity: 1;
+  -moz-opacity: 1;
+  filter: alpha(opacity=100);
+  -webkit-filter: opacity(1);
+  filter: none;
+  /* Firefox 10+ */
+  -webkit-filter: grayscale(0%);
+  /* Chrome 19+ & Safari 6+ */
+  image-rendering: auto;
+}
+
+img:hover {
+  /*opacidade*/
+  opacity: 0.75;
+  -moz-opacity: 0.75;
+  filter: alpha(opacity=75);
+  -webkit-filter: opacity(0.75);
+  /*filtro P/B*/
+  filter: #000;
+  /* IE6-9 */
+  -webkit-filter: grayscale(100%);
+  /* Chrome 19+ & Safari 6+ */
+  /*qualidade*/
+  image-rendering: auto;
+}
+
+
+//ZOOM NA IMAGEM AO PASSAR O MOUSE SOBRE ELA
+img {
+	max-width: 100%;
+	-moz-transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	transition: all 0.5s;
+}
+
+img:hover {
+	-moz-transform: scale(1.1);
+	-webkit-transform: scale(1.1);
+	transform: scale(1.1);
+}
+
 
 // Cor do mat-label
 :host
@@ -51,6 +103,38 @@ img {
 }
 
 // Cor do input
-:host ::ng-deep .mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__input {
-    color: var(--color-text-black);
+:host
+  ::ng-deep
+  .mdc-text-field:not(.mdc-text-field--disabled)
+  .mdc-text-field__input {
+  color: var(--color-text-black);
 }
+
+//FAZER APARECER ICONE DE EDIÇÃO QUANDO PASSA O MOUSE SOBRE A IMAGEM DE PERFIL
+.icon_edit_hover {
+  width: 100px;
+  height: 100px;
+  position: relative;
+}
+
+.icon_edit_hover mat-icon {
+  display: none;
+}
+.icon_edit_hover:hover mat-icon {
+  position: absolute;
+  top: 1;
+  bottom: 0;
+  left: 1;
+  right: 0;
+  margin: auto;
+  z-index: 999;
+  display: flex;
+}
+
+
+.icon-edit {
+  color: #FB1B0A;
+  cursor: pointer;
+}
+
+
