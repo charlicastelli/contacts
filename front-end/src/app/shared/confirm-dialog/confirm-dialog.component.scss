@@ -1,0 +1,27 @@
+//BOTÕES
+//BOTÃO BACKGROUND
+.mat-mdc-raised-button.mat-unthemed {
+    --mdc-protected-button-container-color: var(--accent);
+    --mdc-protected-button-label-text-color: #fff;
+    margin: 0 15px;
+    border-radius: 10px;
+    height: 50px;
+    width: 80px;
+  }
+  
+  .mat-mdc-raised-button.mat-unthemed:hover {
+    transform: scale(1.1);
+  }
+
+  div {
+    background: var(--surface);
+  }
+
+  p {
+    background: var(--surface);
+    color: var(--color-text-black);
+  }
+
+  .button-yes {
+    background: var(--warn);
+  }
