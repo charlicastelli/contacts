@@ -7,7 +7,7 @@ import { Location } from '@angular/common';
 @Component({
   selector: 'app-edit-contact',
   templateUrl: './edit-contact.component.html',
-  styleUrls: ['./edit-contact.component.scss']
+  styleUrls: ['./edit-contact.component.scss'],
 })
 export class EditContactComponent implements OnInit {
   selectedContact: any = Model;
@@ -15,13 +15,12 @@ export class EditContactComponent implements OnInit {
 
   imageURL!: string;
 
-
   constructor(
     private route: ActivatedRoute,
     private contactsService: ContactsService,
     private router: Router,
-    private location: Location,
-  ) { }
+    private location: Location
+  ) {}
 
   ngOnInit(): void {
     /*
@@ -35,7 +34,7 @@ export class EditContactComponent implements OnInit {
     });
   }
 
-  //Carregar na tela o contato 
+  //Carregar na tela o contato
   loadContact(id: number) {
     //capturar o id enviado na rota 'member-detail/:id'
     this.contactsService.getContact(id).subscribe(
@@ -56,29 +55,24 @@ export class EditContactComponent implements OnInit {
     const reader = new FileReader();
     reader.onload = () => {
       this.imageURL = reader.result as string;
-    }
+    };
     reader.readAsDataURL(this.fileToUpload);
   }
 
   update() {
-    this.contactsService.updateContact(this.selectedContact, this.fileToUpload).subscribe(
-      (data) => {
-        this.router.navigate(['/']);
-      },
-      (error) => {
-        console.log('Ocorreu um erro na atualização.');
-      }
-    );
+    this.contactsService
+      .updateContact(this.selectedContact, this.fileToUpload)
+      .subscribe(
+        (data) => {
+          this.router.navigate(['/']);
+        },
+        (error) => {
+          console.log('Ocorreu um erro na atualização.');
+        }
+      );
   }
 
   onCancel() {
     this.location.back();
   }
-
-  // newMember() {
-  //  // this.router.navigate(['new-member']);
-  // }
-
-  
-
 }

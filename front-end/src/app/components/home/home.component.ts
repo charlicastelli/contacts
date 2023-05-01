@@ -32,4 +32,8 @@ export class HomeComponent {
   clickedRows(row: any) {
     this.router.navigate(['contact-detail', row.id]);
   }
+
+  newContact() {
+    this.router.navigate(['new-contact']);
+  }
 }

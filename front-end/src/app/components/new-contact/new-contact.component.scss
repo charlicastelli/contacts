@@ -1,0 +1,107 @@
+//MAT-CARD
+mat-card {
+  border-radius: 10px;
+  background-color: var(--surface);
+  max-width: 600px;
+  text-align: center;
+}
+
+.title-subtitle {
+  padding-left: 10px;
+}
+
+mat-card-content {
+  padding-top: 10px;
+  background-color: var(--surface);
+}
+
+mat-card-subtitle {
+  text-align: left;
+  color: var(--color-text-gray);
+}
+
+mat-card-title {
+  text-align: left;
+  color: var(--color-text-black);
+  margin-top: 15px;
+}
+
+//tamanho do form-field
+.full-width {
+  width: 100%;
+  color: var(--color-text-black);
+}
+
+//Ocultar input do tipo file da tela
+.file-input {
+  display: none;
+}
+
+
+//IMAGEM PERFIL
+//TAMANHO DA IMAGEM
+img {
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+}
+
+
+//ZOOM NA IMAGEM AO PASSAR O MOUSE SOBRE ELA
+img {
+  max-width: 100%;
+  -moz-transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+img:hover {
+  -moz-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+
+// Cor do mat-label quando clica e abre o input
+:host ::ng-deep .mat-mdc-form-field .mdc-text-field--outlined .mdc-notched-outline--upgraded .mdc-floating-label--float-above {
+  font-size: 16px;
+  color: var(--color-text-gray);
+}
+
+// Cor do mat-label
+:host ::ng-deep .mdc-text-field:not(.mdc-text-field--disabled) .mdc-floating-label {
+  color: var(--color-text-gray);
+}
+
+// Cor do input
+:host ::ng-deep .mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__input {
+  color: var(--color-text-black);
+}
+
+//FAZER APARECER ICONE DE EDIÇÃO QUANDO PASSA O MOUSE SOBRE A IMAGEM DE PERFIL
+.icon_edit_hover {
+  width: 100px;
+  height: 100px;
+  position: relative;
+}
+
+.icon_edit_hover mat-icon {
+  display: none;
+}
+
+.icon_edit_hover:hover mat-icon {
+  position: absolute;
+  top: 1;
+  bottom: 0;
+  left: 1;
+  right: 0;
+  margin: auto;
+  z-index: 999;
+  display: flex;
+}
+
+
+.icon-edit {
+  color: #FB1B0A;
+  cursor: pointer;
+}

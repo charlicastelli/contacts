@@ -9,9 +9,10 @@ import { ComponentsRoutingModule } from './components-routing.module';
 import { ContactsDetailComponent } from './contacts-detail/contacts-detail.component';
 import { EditContactComponent } from './edit-contact/edit-contact.component';
 import { HomeComponent } from './home/home.component';
+import { NewContactComponent } from './new-contact/new-contact.component';
 
 @NgModule({
-  declarations: [HomeComponent, ContactsDetailComponent, EditContactComponent],
+  declarations: [HomeComponent, ContactsDetailComponent, EditContactComponent, NewContactComponent],
   imports: [
     CommonModule,
     ComponentsRoutingModule,

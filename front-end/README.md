@@ -16,3 +16,4 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 - `ng g component components/edit-contact`
 - `ng g interface shared/model/model `
 - `ng g component shared/confirm-dialog`
+- `ng g component components/new-contact`

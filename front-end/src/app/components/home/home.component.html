@@ -23,7 +23,7 @@
       mat-row
       *matRowDef="let row; columns: displayedColumns"
       (click)="clickedRows(row)"
-    ></tr>
+    ></tr>z
   </table>
 
   <!--Caso o observable retornar falso, exibe o spinner-->
@@ -33,3 +33,4 @@
       </div>
   </ng-template>
 </div>
+<button (click)="newContact()">Novo</button>
