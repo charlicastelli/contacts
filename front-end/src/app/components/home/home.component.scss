@@ -27,3 +27,12 @@
   margin: 2em auto;
   text-align: center;
 }
+
+
+.loading-spinner {
+  padding: 25px;
+  background-color: var(--background);
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
