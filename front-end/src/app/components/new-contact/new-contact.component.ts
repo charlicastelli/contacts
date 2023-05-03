@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Model } from 'src/app/shared/model/model';
 
 import { ContactsService } from '../service/contacts/contacts.service';
+import { MessagesService } from '../service/messages/messages.service';
 
 @Component({
   selector: 'app-new-contact',
@@ -12,14 +13,22 @@ import { ContactsService } from '../service/contacts/contacts.service';
 })
 export class NewContactComponent implements OnInit {
   //newContact: any = Model;
-  newContact = { name: '', surname: '', phone: '', email: '', company: '', photo: '' };
+  newContact = {
+    name: '',
+    surname: '',
+    phone: '',
+    email: '',
+    company: '',
+    photo: '',
+  };
   fileToUpload!: File;
   imageURL!: string;
 
   constructor(
     private contactsService: ContactsService,
     private router: Router,
-    private location: Location
+    private location: Location,
+    private messageService: MessagesService
   ) {}
 
   ngOnInit(): void {}
@@ -35,13 +44,16 @@ export class NewContactComponent implements OnInit {
       formData.append('photo', this.fileToUpload, this.fileToUpload.name);
     }
 
-    this.contactsService.saveNewContact(formData).subscribe((data) => {
-      this.newContact = data;
-      this.router.navigate(['']);
-    },
-    (error) => {
-      console.log('Erro ao salvar contato');
-    } 
+    this.contactsService.saveNewContact(formData).subscribe(
+      (data) => {
+        this.newContact = data;
+        this.router.navigate(['']);
+        this.messageService.header('Sucesso');
+        this.messageService.add('Contato salvo com sucesso!');
+      },
+      (error) => {
+        console.log('Erro ao salvar contato');
+      }
     );
   }
 
@@ -60,5 +72,4 @@ export class NewContactComponent implements OnInit {
   onCancel() {
     this.location.back();
   }
-
 }

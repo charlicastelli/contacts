@@ -3,6 +3,8 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { ContactsService } from '../service/contacts/contacts.service';
 import { Model } from 'src/app/shared/model/model';
 import { Location } from '@angular/common';
+import { MessageSuccessComponent } from 'src/app/shared/message-success/message-success.component';
+import { MessagesService } from '../service/messages/messages.service';
 
 @Component({
   selector: 'app-edit-contact',
@@ -19,7 +21,8 @@ export class EditContactComponent implements OnInit {
     private route: ActivatedRoute,
     private contactsService: ContactsService,
     private router: Router,
-    private location: Location
+    private location: Location,
+    private messageService: MessagesService
   ) {}
 
   ngOnInit(): void {
@@ -65,6 +68,8 @@ export class EditContactComponent implements OnInit {
       .subscribe(
         (data) => {
           this.router.navigate(['/']);
+          this.messageService.header('Sucesso');
+          this.messageService.add('Contato editado com sucesso!');
         },
         (error) => {
           console.log('Ocorreu um erro na atualização.');
