@@ -8,6 +8,7 @@
   border-color: var(--color-text-gray);
 }
 
+
 .mat-mdc-table tbody,
 .mat-mdc-table tfoot,
 .mat-mdc-table thead,
@@ -36,3 +37,24 @@
   text-align: center;
   justify-content: center;
 }
+
+//BOTÕES
+//BOTÃO BACKGROUND
+.mat-mdc-raised-button.mat-unthemed {
+  --mdc-protected-button-container-color: var(--accent);
+  --mdc-protected-button-label-text-color: #fff;
+
+  border-radius: 10px;
+  height: 50px;
+  width: 180px;
+  margin-top: 50px;
+}
+
+.mat-mdc-raised-button.mat-unthemed:hover {
+  transform: scale(1.1);
+}
+
+div {
+  padding: 50px;
+}
+

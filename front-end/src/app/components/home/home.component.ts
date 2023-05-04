@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { ContactsService } from '../service/contacts/contacts.service';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
-import { Model } from 'src/app/shared/model/model';
+
+import { ContactsService } from '../service/contacts/contacts.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ErrorDialogComponent } from 'src/app/shared/error-dialog/error-dialog.component';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +14,11 @@ export class HomeComponent {
   contacts = [];
   displayedColumns: string[] = ['name', 'email', 'phone'];
 
-  constructor(private contactService: ContactsService, private router: Router) {
+  constructor(
+    private contactService: ContactsService,
+    private router: Router,
+    public dialog: MatDialog
+  ) {
     this.getContacts();
   }
 
@@ -24,7 +29,7 @@ export class HomeComponent {
         console.log(this.contacts);
       },
       (error) => {
-        console.log('Aconteceu um erro');
+        this.onError('Erro ao carregar informações!');
       }
     );
   }
@@ -36,4 +41,11 @@ export class HomeComponent {
   newContact() {
     this.router.navigate(['new-contact']);
   }
+
+  onError(errorMsg: string) {
+    this.dialog.open(ErrorDialogComponent, {
+      data: errorMsg,
+    });
+  }
+
 }

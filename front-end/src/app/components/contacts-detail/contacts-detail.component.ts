@@ -6,6 +6,7 @@ import { ConfirmDialogComponent } from 'src/app/shared/confirm-dialog/confirm-di
 import { Model } from 'src/app/shared/model/model';
 
 import { ContactsService } from '../service/contacts/contacts.service';
+import { MessagesService } from '../service/messages/messages.service';
 
 @Component({
   selector: 'app-contacts-detail',
@@ -22,6 +23,7 @@ export class ContactsDetailComponent implements OnInit {
     private router: Router,
     public dialog: MatDialog,
     private location: Location,
+    private messageService: MessagesService
   ) {}
 
   ngOnInit(): void {
@@ -66,6 +68,8 @@ export class ContactsDetailComponent implements OnInit {
         this.contactsService.removeContact(this.selectedId).subscribe(
           (data) => {
             this.router.navigate(['/']);
+            this.messageService.header('Sucesso');
+            this.messageService.add('Contato excluido com sucesso!');
           },
           (error) => {
             console.log('Aconteceu um erro no updateMember');
@@ -74,7 +78,6 @@ export class ContactsDetailComponent implements OnInit {
       }
     });
   }
-
 
   onCancel() {
     this.location.back();

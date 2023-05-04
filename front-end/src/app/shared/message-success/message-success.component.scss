@@ -1,9 +1,9 @@
 .message {
     position: fixed;
     top: 1%;
-    width: 30%;
+    width: 20%;
     margin-left: 50%;
-    left: 17%;
+    left: 27%; //proporção 5% de diferença com o width
     z-index: 10;
     background-color: #036b19;
     border: 1px solid #036b19;
@@ -34,7 +34,6 @@
   }
   
   .clear:hover {
-    color: #62D2A2;
     transform: scale(1.4);
   }
   
