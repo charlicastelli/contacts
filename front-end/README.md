@@ -24,10 +24,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 
 ### help
-<tr
+<!-- <tr
     mat-row
     *matRowDef="let row; columns: displayedColumns" 
     (click)="clickedRows(row)" 
-></tr>z
+></tr> -->
 
 - O `(click)="clickedRows(row)"` no código acima pode ser usado para que algo aconteça quando clicado em qualquer parte da row da tabela
