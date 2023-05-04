@@ -22,12 +22,3 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 - `ng g component shared/message-error`
 - `ng g component shared/error-dialog`
 
-
-### help
-<!-- <tr
-    mat-row
-    *matRowDef="let row; columns: displayedColumns" 
-    (click)="clickedRows(row)" 
-></tr> -->
-
-- O `(click)="clickedRows(row)"` no código acima pode ser usado para que algo aconteça quando clicado em qualquer parte da row da tabela
